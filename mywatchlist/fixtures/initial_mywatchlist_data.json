@@ -1,0 +1,112 @@
+[
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":1,
+        "fields":{
+            "watched":"Done",
+            "title":"Spider-Man 2",
+            "rating": "7.4/10",
+            "release_date": "06/30/2004",
+            "review": "BEST SPIDERMAN EVER RIGHT?"
+        }
+},
+{
+        "model":"mywatchlist.mywatchlist",
+        "pk":2,
+        "fields":{
+            "watched":"Done",
+            "title":"Riverdale",
+            "rating": "8.8/10",
+            "release_date": "01/26/2017",
+            "review": "GORGEOUS BETTY <3"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":3,
+        "fields":{
+            "watched":"Done",
+            "title":"Fast Five",
+            "rating": "7.3/10",
+            "release_date": "04/29/2011",
+            "review": "BEST FF MOVIE SERIES!"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":4,
+        "fields":{
+            "watched":"Done",
+            "title":"Imperfect",
+            "rating": "7.8/10",
+            "release_date": "12/19/2019",
+            "review": "huhu bagus bingits"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":5,
+        "fields":{
+            "watched":"Done",
+            "title":"Howl's Moving Castle",
+            "rating": "8.2/10",
+            "release_date": "11/20/2004",
+            "review": "howl ganteng bgt, film ghibli gada obeng"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":6,
+        "fields":{
+            "watched":"Done",
+            "title":"Barbie in a Mermaid Tale",
+            "rating": "6.2/10",
+            "release_date": "03/02/2010",
+            "review": "WALAUPUN 6/10 tp bagus seru :)"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":7,
+        "fields":{
+            "watched":"Done",
+            "title":"Miracle in Cell No.7",
+            "rating": "8.1/20",
+            "release_date": "07/19/203",
+            "review": "sedih bgt aligg"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":8,
+        "fields":{
+            "watched":"Not Yet",
+            "title":"The Hunger Games",
+            "rating": "7.2/10",
+            "release_date": "04/22/2012",
+            "review": "cool movie everdeen!"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":9,
+        "fields":{
+            "watched":"Not Yet",
+            "title":"Our Beloved Summer",
+            "rating": "12/06/2021",
+            "release_date": "8.3/10",
+            "review": "Cool Drakor"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":10,
+        "fields":{
+            "watched":"Not Yet",
+            "title":"SPY X FAMILY",
+            "rating": "8.8/10",
+            "release_date": "04/09/2022",
+            "review": "Good"
+        }
+    }
+]
