@@ -22,5 +22,14 @@ Kita memerlukan data delivery dalam pengimplementasian sebuah platform karena ki
 
 ### Postman
 
+JSON
+
+
+HTML
+
+
+
+XML
+
 
 
