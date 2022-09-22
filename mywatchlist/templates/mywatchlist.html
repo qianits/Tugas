@@ -27,4 +27,10 @@
     {% endfor %}
 </table>
 
+{% if watched >= not_watched %}
+    <p>Selamat, kamu sudah banyak menonton!</p>
+  {% else %}
+    <p>Wah, kamu masih sedikit menonton!</p>
+  {% endif %}
+
 {% endblock content %}

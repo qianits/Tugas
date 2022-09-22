@@ -26,4 +26,19 @@ def show_json(request):
 
 def show_html(request):
     data = MyWatchList.objects.all()
+
+    watched = 0
+    not_watched = 0
+    for film in data:
+        if film.watched:
+            watched += 1
+        else:
+            not_watched += 1
+
+    context = {
+        'list_mywatchlist' : data_mywatchlist,
+        'nama' : "Qistina Muharrifa",
+        'npm' : "2106708210",
+        "watched": watched,
+        "not_watched": not_watched }
     return render(request, "mywatchlist.html", context)
