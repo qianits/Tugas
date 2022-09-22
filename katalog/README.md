@@ -13,6 +13,8 @@ Hasil deploy bisa diakses melalui https://katalog-gg-geming.herokuapp.com/katalo
 ## Bagan 
 
 ![Bagan]('../../staticfiles/bagan.png?raw=true')
+![image.png](https://ibb.co/zhdTzs4)
+(jika tidak terlihat bisa diakses melalui https://ibb.co/zhdTzs4)
 
 Penjelasan :
 
@@ -40,4 +42,5 @@ Virtual environment (venv) digunakan untuk memastikan perubahan yang terjadi han
 Sekian penjelasan saya, Terima kasih
 
 Salam,
+Qistina
 Qistina

@@ -71,7 +71,7 @@
         "fields":{
             "watched":"Done",
             "title":"Miracle in Cell No.7",
-            "rating": "8.1/20",
+            "rating": "8.1/10",
             "release_date": "07/19/203",
             "review": "sedih bgt aligg"
         }
@@ -93,8 +93,8 @@
         "fields":{
             "watched":"Not Yet",
             "title":"Our Beloved Summer",
-            "rating": "12/06/2021",
-            "release_date": "8.3/10",
+            "rating": "8.3/10",
+            "release_date": "12/06/2021",
             "review": "Cool Drakor"
         }
     },
