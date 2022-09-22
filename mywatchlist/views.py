@@ -6,15 +6,15 @@ from django.core import serializers
 
 # Create your views here.
 
-def show_mywatchlist(request):
-    return render(request, "mywatchlist.html", context)
-
 data_mywatchlist = MyWatchList.objects.all()
 context = {
     'list_mywatchlist' : data_mywatchlist,
     'nama' : "Qistina Muharrifa",
     'npm' : "2106708210"
 }
+def show_mywatchlist(request):
+    return render(request, "mywatchlist.html", context)
+
 
 def show_xml(request):
     data = MyWatchList.objects.all()
@@ -36,7 +36,7 @@ def show_html(request):
             not_watched += 1
 
     context = {
-        'list_mywatchlist' : data_mywatchlist,
+        'list_mywatchlist' : data,
         'nama' : "Qistina Muharrifa",
         'npm' : "2106708210",
         "watched": watched,
