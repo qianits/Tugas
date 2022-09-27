@@ -12,7 +12,7 @@ Hasil deploy bisa diakses melalui https://katalog-gg-geming.herokuapp.com/katalo
 
 ## Bagan 
 
-![Bagan]('../../staticfiles/bagan.png?raw=true')
+![Bagan](/staticfiles/bagan.png)
 ![image.png](https://ibb.co/zhdTzs4)
 (jika tidak terlihat bisa diakses melalui https://ibb.co/zhdTzs4)
 

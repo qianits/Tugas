@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>New Todo List</title>
+{% endblock meta %}
+
+{% block content %}
+
+<div class = "createtask">
+
+    <h1>Create Todo List</h1>
+
+    <form method="POST" >
+        {% csrf_token %}
+        <table>
+            <tr>
+                {{ form.as_table }}
+            <tr>
+                <td></td>
+                <td><input type="submit" name="submit" value="Create"/></td>  
+            </tr>  
+        </table>  
+    </form>
+
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}     
+
+</div>
+
+{% endblock content %}
