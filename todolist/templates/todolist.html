@@ -9,6 +9,8 @@
     <th>Date</th>
     <th>Title</th>
     <th>Description</th>
+    <th>Status</th>
+    <th>Action</th>
     </tr>
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
     {% for component in data %}
@@ -16,6 +18,17 @@
         <th>{{component.date}}</th>
         <th>{{component.title}}</th>
         <th>{{component.description}}</th>
+        <th>
+            {% if component.is_finished %}
+            Finished
+            {% else %}
+            Not Yet
+            {% endif%}
+        </th>
+        <th>
+            <button><a href="{% url 'todolist:remove' component.id %}" title="">Remove</a></button>
+            <button><a href="{% url 'todolist:status' component.id %}" title="">Change Status</a></button>
+        </th>
     </tr>
 {% endfor %}
 </table>

@@ -13,16 +13,16 @@ from django.urls import reverse
 from todolist.forms import Input_Form
 
 # Create your views here.
-
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
     data_todolist = Task.objects.filter(user=request.user)
     context = {
     'username' : request.user.username,
     'data' : data_todolist,
-    'last_login': request.COOKIES['last_login'],
+    # 'last_login': request.COOKIES['last_login'],
     }
     return render(request, "todolist.html", context)
+
 
 def register(request):
     form = UserCreationForm()
@@ -67,4 +67,12 @@ def create_task(request):
     context = {"form":form}
     return render(request, "create-task.html", context=context)
 
+def remove(request, id):
+    Task.objects.get(id=id).delete()
+    return redirect('todolist:show_todolist')
 
+def status(request, id):
+    todo = Task.objects.get(id=id)
+    todo.is_finished = not(todo.is_finished)
+    todo.save()
+    return redirect('todolist:show_todolist')
