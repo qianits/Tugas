@@ -1,5 +1,6 @@
 import imp
 from multiprocessing import context
+from urllib import response
 from django.shortcuts import render
 from todolist.models import Task, User
 from django.shortcuts import redirect
@@ -12,9 +13,14 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from todolist.forms import Input_Form
 
+
 # Create your views here.
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
+    var = request.COOKIES.get('last_login', 'UserNotFound')
+    if var == "UserNotFound":
+        response = HttpResponseRedirect(reverse("todolist:login"))
+        return response
     data_todolist = Task.objects.filter(user=request.user)
     context = {
     'username' : request.user.username,
@@ -58,6 +64,7 @@ def logout_user(request):
     response.delete_cookie('last_login')
     return response
 
+@login_required(login_url='/todolist/login/')
 def create_task(request):
     form = Input_Form(request.POST)
     if (form.is_valid() and request.method == 'POST'):
@@ -67,10 +74,12 @@ def create_task(request):
     context = {"form":form}
     return render(request, "create-task.html", context=context)
 
+@login_required(login_url='/todolist/login/')
 def remove(request, id):
     Task.objects.get(id=id).delete()
     return redirect('todolist:show_todolist')
 
+@login_required(login_url='/todolist/login/')
 def status(request, id):
     todo = Task.objects.get(id=id)
     todo.is_finished = not(todo.is_finished)
