@@ -1,41 +1,54 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h5>Nama: </h5>
-<p>{{username}}</p>
 
-<table border="1">
-    <tr>
-    <th>Date</th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th>Action</th>
-    </tr>
-    {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
-    {% for component in data %}
-    <tr>
-        <th>{{component.date}}</th>
-        <th>{{component.title}}</th>
-        <th>{{component.description}}</th>
-        <th>
-            {% if component.is_finished %}
-            Finished
-            {% else %}
-            Not Yet
-            {% endif%}
-        </th>
-        <th>
-            <button><a href="{% url 'todolist:remove' component.id %}" title="">Remove</a></button>
-            <button><a href="{% url 'todolist:status' component.id %}" title="">Change Status</a></button>
-        </th>
-    </tr>
-{% endfor %}
-</table>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<body style="background-image: linear-gradient(to left, #fdbb2d, #22c1c3);">
+    
+    <nav class="navbar navbar-expand-lg bg-warning">
+        <div class="container-fluid text-center">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a style="color:black;" class="navbar-brand" href="#"> Hello, {{username}} !</a>
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                  <a style="font-size:20px;">To-Do List</a>
+              </li>
+      
+            </ul>
+              <a href="{% url 'todolist:create_task' %}" class="tambah-button">Create Task</a></button>
+              <a href="{% url 'todolist:logout' %}" class="logout-button">Logout</a>
+          </div>
+        </div>
+      </nav>
 
-<h5>Sesi terakhir login: {{ last_login }}</h5>
-<button><a href="{% url 'todolist:create_task' %}">Create New Task</a></button>
-<br>
-<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+    <h5 class="mb-5" style="text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Your todolist!</h5> 
 
+    <div class="row row-cols-md-4 mx-auto" style="width: 90%;">
+      {% for component in data %}
+      <div class="col">
+        <div class="card border-primary mb-3">
+          <div class="card-body">
+            <h3 class="card-title">{{component.title}}</h3>
+            <h7 class="card-subtitle">{{component.date}}</h7>
+            <p class="card-text">{{component.description}}</p>
+            <p class="card-text">
+              {% if component.is_finished %}
+              Finished
+              {% else %}
+              Not Yet
+              {% endif %}
+            </p>
+            <p style="text-align: center;">
+              <a style="width: 5rem;" class="btn login_btn btn btn-danger form-control lg" href="remove/{{component.id}}">Remove</a>
+              <a style="width: 5rem;" class="btn login_btn btn btn-info form-control lg" href="status/{{component.id}}">Change Status</a></p>
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+</body>
 {% endblock content %}
