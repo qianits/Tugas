@@ -1,4 +1,3 @@
-from multiprocessing import context
 from django.shortcuts import render
 from mywatchlist.models import MyWatchList
 from django.http import HttpResponse

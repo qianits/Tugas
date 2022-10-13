@@ -2,16 +2,18 @@ import imp
 from multiprocessing import context
 from urllib import response
 from django.shortcuts import render
-from todolist.models import Task, User
+from todolist.models import Task
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import datetime
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.urls import reverse
 from todolist.forms import Input_Form
+from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
@@ -85,3 +87,25 @@ def status(request, id):
     todo.is_finished = not(todo.is_finished)
     todo.save()
     return redirect('todolist:show_todolist')
+
+# Tugas 6
+
+@login_required(login_url='/todolist/login/')
+def show_json(request):
+    task = Task.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', task), content_type='application/json')
+
+@login_required(login_url='/todolist/login/')
+@csrf_exempt  
+def add_ajax(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        todo = Task.objects.create(title=title, description=description,date=datetime.date.today(), user=request.user)
+        return JsonResponse({'pk':todo.pk,
+                'fields':{
+                'title':todo.title,
+                'date':todo.date,
+                'description':todo.description,
+            }})
+
